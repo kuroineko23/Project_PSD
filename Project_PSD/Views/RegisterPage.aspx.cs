@@ -1,4 +1,5 @@
-﻿using System;
+using Project_PSD.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,7 +17,14 @@ namespace Project_PSD.Views
 
         protected void Register_Click(object sender, EventArgs e)
         {
+            string name = NameTxt.Text;
+            string username = usernameTxt.Text;
+            string password = passwordTxt.Text;
+            string confirm = confirmTxt.Text;
+            string role = RoleDD.SelectedValue;
 
+            string result = UserController.RegistrationValidation(name, username, password, confirm, role);
+            ErrorLbl.Text = result;
         }
     }
 }

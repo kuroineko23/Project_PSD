@@ -16,7 +16,7 @@
                 Username
             </td>
             <td>
-                <asp:TextBox runat="server" ID="UsernameTxt"/>
+                <asp:TextBox runat="server" ID="usernameTxt"/>
             </td>
         </tr>
         <tr>
@@ -47,6 +47,7 @@
             </td>
         </tr>
     </table>
-    <asp:Label Text="" ID="ErrorLbl" runat="server" />
+    <asp:Label Text="" ID="ErrorLbl" runat="server" ForeColor="Red" />
+    <br />
     <asp:Button ID="Register" Text="Register" OnClick="Register_Click" runat="server" />
 </asp:Content>

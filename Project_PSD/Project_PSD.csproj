@@ -104,6 +104,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Factories\UserFactory.cs" />
     <Compile Include="Models\DatabaseModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -253,6 +254,10 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Handlers\" />
+    <Folder Include="Repositories\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
