@@ -1,0 +1,58 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Layout.master.cs" Inherits="Project_PSD.Views.Layout" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <table>
+                <tr>
+                    <td>
+                        <asp:LinkButton Text="Home" ID="HomeBtn" OnClick="HomeBtn_Click" runat="server" />
+                    </td>
+                    <asp:Panel ID="GuestPanel" Visible="False" runat="server">
+                        <td>
+                            <asp:LinkButton Text="Login" ID="LoginBtn" OnClick="LoginBtn_Click" runat="server" />
+                        </td>
+                        <td>
+                            <asp:LinkButton Text="Register" ID="RegisterBtn" OnClick="RegisterBtn_Click" runat="server" />
+                        </td>
+                    </asp:Panel>
+                    <asp:Panel ID="MemberPanel" Visible="False" runat="server">
+                        <asp:Panel ID="BuyerPanel" Visible="false" runat="server">
+                        <td>
+                            <asp:LinkButton Text="Transactions" ID="TransactionBtn" OnClick="TransactionBtn_Click" runat="server" />
+                        </td>
+                        </asp:Panel>
+                        <asp:Panel ID="SellerPanel" Visible="false" runat="server">
+                            <td>
+                                <asp:LinkButton Text="Add Show" ID="AddShowBtn" OnClick="AddShowBtn_Click" runat="server" />
+                            </td>
+                            <td>
+                                <asp:LinkButton Text="Reports" ID="ReportBtn" OnClick="ReportBtn_Click" runat="server" />
+                            </td>
+                        </asp:Panel>
+                        <td>
+                                <asp:LinkButton Text="Account" ID="AccountBtn" OnClick="AccountBtn_Click" runat="server" />
+                        </td>
+                    </asp:Panel>
+                    <td>
+                        <asp:LinkButton Text="Redeem Token" ID="RedeemBtn" OnClick="RedeemBtn_Click" runat="server" />
+                    </td>
+                    <td>
+                        <asp:LinkButton Text="Logout" ID="LogoutBtn" OnClick="LogoutBtn_Click" runat="server" />
+                    </td>
+                </tr>
+            </table>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
