@@ -24,6 +24,14 @@ namespace Project_PSD.Views
             string role = RoleDD.SelectedValue;
 
             string result = UserController.RegistrationValidation(name, username, password, confirm, role);
+            if(result == "Registration Successful!")
+            {
+                ErrorLbl.ForeColor = System.Drawing.Color.Green;
+            }
+            else
+            {
+                ErrorLbl.ForeColor = System.Drawing.Color.Red;
+            }
             ErrorLbl.Text = result;
         }
     }

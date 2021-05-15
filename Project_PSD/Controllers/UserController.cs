@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Text.RegularExpressions;
+using Project_PSD.Handlers;
 
 namespace Project_PSD.Controllers
 {
@@ -10,21 +11,30 @@ namespace Project_PSD.Controllers
     {
         public static string RegistrationValidation(string name, string username, string password, string confirm, string role)
         {
-            string result = "";
-            result = NameCheck(name);
-            if(result == "")
+            if(NameCheck(name) != "")
             {
-                result = UsernameCheck(username);
-                if (result == "")
-                {
-                    result = PasswordCheck(password, confirm);
-                    if (result == "")
-                    {
-                        result = RoleCheck(role);
-                    }
-                }
+                return NameCheck(name);
             }
-            return result;
+            if(UsernameCheck(username) != "")
+            {
+                return UsernameCheck(username);
+            }
+            if(PasswordCheck(password, confirm) != "")
+            {
+                return PasswordCheck(password, confirm);
+            }
+            if(RoleCheck(role) != "")
+            {
+                return RoleCheck(role);
+            }
+            if(UserHandler.Register(username, password, name, role))
+            {
+                return "Registration Successful!";
+            }
+            else
+            {
+                return "Error registering!";
+            }
         }
 
         public static string NameCheck(string name)
