@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Project_PSD.Model
+namespace Project_PSD.Models
 {
     using System;
     using System.Data.Entity;

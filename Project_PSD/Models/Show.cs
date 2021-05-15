@@ -7,23 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Project_PSD.Model
+namespace Project_PSD.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Role
+    public partial class Show
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Role()
+        public Show()
         {
-            this.Users = new HashSet<User>();
+            this.TransactionHeaders = new HashSet<TransactionHeader>();
         }
     
         public int Id { get; set; }
+        public int SellerId { get; set; }
         public string Name { get; set; }
+        public int Price { get; set; }
+        public string Description { get; set; }
     
+        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<TransactionHeader> TransactionHeaders { get; set; }
     }
 }
