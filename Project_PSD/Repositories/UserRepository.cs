@@ -19,5 +19,10 @@ namespace Project_PSD.Repositories
             }
             return false;
         }
+
+        public static User findUser(string username, string password)
+        {
+            return (from x in db.Users where x.Username == username && x.Password == password select x).FirstOrDefault();
+        }
     }
 }

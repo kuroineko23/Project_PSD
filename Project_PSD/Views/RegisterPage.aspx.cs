@@ -12,7 +12,10 @@ namespace Project_PSD.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["User"] != null)
+            {
+                Response.Redirect("HomePage.aspx");
+            }
         }
 
         protected void Register_Click(object sender, EventArgs e)

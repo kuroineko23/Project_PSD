@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Text.RegularExpressions;
 using Project_PSD.Handlers;
+using Project_PSD.Models;
 
 namespace Project_PSD.Controllers
 {
@@ -92,6 +93,20 @@ namespace Project_PSD.Controllers
             return "";
         }
 
+        public static string PasswordCheck(string password)
+        {
+            string regexPattern = "^[a-zA-Z0-9]+$";
+            if (password.Length < 6)
+            {
+                return "Password length must be 6 or more characters!";
+            }
+            else if (!Regex.IsMatch(password, regexPattern))
+            {
+                return "Password contains invalid character(s)! (Alphanumeric only)";
+            }
+            return "";
+        }
+
         public static string RoleCheck(string role)
         {
             if(role == "")
@@ -99,6 +114,33 @@ namespace Project_PSD.Controllers
                 return "You must choose a role!";
             }
             return "";
+        }
+
+        public static string LoginValidation(string username, string password)
+        {
+            if (UsernameCheck(username) != "")
+            {
+                return UsernameCheck(username);
+            }
+            if (PasswordCheck(password) != "")
+            {
+                return PasswordCheck(password);
+            }
+
+            User user = UserHandler.findUser(username, password);
+            if (user != null)
+            {
+                return "";
+            }
+            else
+            {
+                return "User not found!";
+            }
+        }
+
+        public static User GetUser(string username, string password)
+        {
+            return UserHandler.findUser(username, password);
         }
     }
 }
