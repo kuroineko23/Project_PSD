@@ -14,8 +14,11 @@ namespace Project_PSD.Views
 
         }
 
-        protected void Login_Click(object sender, EventArgs e)
+        protected void LoginBtn_Click(object sender, EventArgs e)
         {
+            string username = usernameTxt.Text;
+            string password = passwordTxt.Text;
+
 
         }
     }

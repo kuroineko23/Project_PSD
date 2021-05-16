@@ -5,10 +5,10 @@
     <table>
         <tr>
             <td>
-                Email
+                Username
             </td>
             <td>
-                <asp:TextBox runat="server" ID="emailTxt" TextMode="Email"/>
+                <asp:TextBox runat="server" ID="usernameTxt"/>
             </td>
         </tr>
         <tr>
@@ -26,6 +26,6 @@
         </tr>
     </table>
     <asp:Label Text="" ID="ErrorLbl" runat="server" />
-    <asp:Button ID="Login" Text="Login" OnClick="Login_Click" runat="server" />
+    <asp:Button ID="LoginBtn" Text="Login" OnClick="LoginBtn_Click" runat="server" />
 </asp:Content>
 
