@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project_PSD.Handler;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,19 @@ namespace Project_PSD.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            FillGrid();
+            //Response.Redirect("./UpdateFoodPage.aspx?id=" + txtID.Text);
+        }
+        protected void FillGrid()
+        {
+            ShowGV.DataSource = ShowHandler.GetShowList();
+            ShowGV.DataBind();
+        }
 
+        protected void DetailLink_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32((sender as LinkButton).CommandArgument);
+            Response.Redirect("./ShowDetailPage.aspx?id=" + id);
         }
     }
 }
