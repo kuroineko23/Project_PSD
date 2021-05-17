@@ -1,3 +1,4 @@
+using Project_PSD.Controllers;
 using Project_PSD.Models;
 using System;
 using System.Collections.Generic;
@@ -12,17 +13,22 @@ namespace Project_PSD.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["User"] == null)
+            if (Session["User"] == null && Request.Cookies["TAxAidi_User"] == null)
             {
                 GuestPanel.Visible = true;
                 SellerPanel.Visible = false;
                 BuyerPanel.Visible = false;
                 MemberPanel.Visible = false;
+                UsernameLbl.Text = "Guest";
             }
             else
             {
+                if(Session["User"] == null)
+                {
+                    Session["User"] = UserController.GetUser(int.Parse(Request.Cookies["TAxAidi_User"].Value));
+                }
                 User currentUser = (User)Session["User"];
-                if(currentUser.RoleId == 1)
+                if (currentUser.RoleId == 1)
                 {
                     SellerPanel.Visible = true;
                     GuestPanel.Visible = false;
@@ -36,6 +42,7 @@ namespace Project_PSD.Views
                     GuestPanel.Visible = false;
                     MemberPanel.Visible = true;
                 }
+                UsernameLbl.Text = currentUser.Name;
             }
         }
 
@@ -71,7 +78,9 @@ namespace Project_PSD.Views
 
         protected void LogoutBtn_Click(object sender, EventArgs e)
         {
-
+            Session["User"] = null;
+            Response.Cookies["TAxAidi_User"].Expires = DateTime.Now.AddDays(-1);
+            Response.Redirect("LoginPage.aspx");
         }
 
         protected void AccountBtn_Click(object sender, EventArgs e)

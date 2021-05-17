@@ -1,4 +1,5 @@
 using Project_PSD.Controllers;
+using Project_PSD.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace Project_PSD.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["User"] != null)
+            if (Session["User"] != null || Request.Cookies["TAxAidi_User"] != null)
             {
                 Response.Redirect("HomePage.aspx");
             }
@@ -22,11 +23,20 @@ namespace Project_PSD.Views
         {
             string username = usernameTxt.Text;
             string password = passwordTxt.Text;
+            bool remember = rememberCheck.Checked;
 
             string result = UserController.LoginValidation(username, password);
-            if (result == "")
+            if(result == "")
             {
-                Session["User"] = UserController.GetUser(username, password);
+                User user = UserController.GetUser(username, password);
+                Session["User"] = user;
+                if(remember)
+                {
+                    HttpCookie cookie = new HttpCookie("TAxAidi_User");
+                    cookie.Value = user.Id.ToString();
+                    cookie.Expires = DateTime.Now.AddYears(99);
+                    Response.Cookies.Add(cookie);
+                }
                 Response.Redirect("HomePage.aspx");
             }
             else

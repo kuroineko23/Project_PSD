@@ -142,5 +142,10 @@ namespace Project_PSD.Controllers
         {
             return UserHandler.findUser(username, password);
         }
+
+        public static User GetUser(int id)
+        {
+            return UserHandler.findUser(id);
+        }
     }
 }

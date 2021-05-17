@@ -28,5 +28,10 @@ namespace Project_PSD.Handlers
         {
             return UserRepository.findUser(username, password);
         }
+
+        public static User findUser(int id)
+        {
+            return UserRepository.findUser(id);
+        }
     }
 }

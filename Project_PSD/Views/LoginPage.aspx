@@ -26,6 +26,7 @@
         </tr>
     </table>
     <asp:Label Text="" ID="ErrorLbl" runat="server" />
+    <br />
     <asp:Button ID="LoginBtn" Text="Login" OnClick="LoginBtn_Click" runat="server" />
 </asp:Content>
 

@@ -24,5 +24,10 @@ namespace Project_PSD.Repositories
         {
             return (from x in db.Users where x.Username == username && x.Password == password select x).FirstOrDefault();
         }
+
+        public static User findUser(int id)
+        {
+            return (from x in db.Users where x.Id == id select x).FirstOrDefault();
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +11,10 @@ namespace Project_PSD.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["User"] == null && Request.Cookies["TAxAidi_User"] == null)
+            {
+                Response.Redirect("LoginPage.aspx");
+            }
         }
 
         protected void InsertBtn_Click(object sender, EventArgs e)

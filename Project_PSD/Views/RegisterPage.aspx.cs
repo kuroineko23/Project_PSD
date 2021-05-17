@@ -12,7 +12,7 @@ namespace Project_PSD.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["User"] != null)
+            if (Session["User"] != null || Request.Cookies["TAxAidi_User"] != null)
             {
                 Response.Redirect("HomePage.aspx");
             }
