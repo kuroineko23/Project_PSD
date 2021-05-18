@@ -11,7 +11,10 @@ namespace Project_PSD.Views
 {
     public partial class Layout : System.Web.UI.MasterPage
     {
-        protected void Page_Load(object sender, EventArgs e)
+        /* https://docs.microsoft.com/en-us/previous-versions/aspnet/ms178472(v=vs.100)
+         * load master page before content for setting user session when cookie exist
+         */
+        protected void Page_Init(object sender, EventArgs e)
         {
             if (Session["User"] == null && Request.Cookies["TAxAidi_User"] == null)
             {

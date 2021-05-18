@@ -16,7 +16,7 @@
                 URL
             </td>
             <td>
-                <asp:TextBox runat="server" ID="URLTxt" TextMode="Url" />
+                <asp:TextBox runat="server" ID="URLTxt" TextMode="Url" placeholder="http(s)://google.com" />
             </td>
         </tr>
         <tr>
@@ -37,5 +37,6 @@
         </tr>
     </table>
     <asp:Label Text="" ID="ErrorLbl" runat="server" />
+    <br />
     <asp:Button Text="Insert" ID="InsertBtn" OnClick="InsertBtn_Click" runat="server" />
 </asp:Content>

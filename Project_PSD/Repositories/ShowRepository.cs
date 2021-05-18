@@ -1,4 +1,4 @@
-﻿using Project_PSD.Models;
+using Project_PSD.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +13,17 @@ namespace Project_PSD.Repository
         public static List<Show> GetAllShows()
         {
             return (from x in db.Shows select x).ToList();
+        }
+
+        public static bool AddShow(Show newShow)
+        {
+            if (newShow != null)
+            {
+                db.Shows.Add(newShow);
+                db.SaveChanges();
+                return true;
+            }
+            return false;
         }
     }
 }
