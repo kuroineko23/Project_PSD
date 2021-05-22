@@ -15,6 +15,11 @@ namespace Project_PSD.Repository
             return (from x in db.Shows select x).ToList();
         }
 
+        public static Show GetShowById(int id)
+        {
+            return db.Shows.Find(id);
+        }
+
         public static bool AddShow(Show newShow)
         {
             if (newShow != null)

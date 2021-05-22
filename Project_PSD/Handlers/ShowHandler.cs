@@ -15,6 +15,11 @@ namespace Project_PSD.Handler
             return ShowRepository.GetAllShows();
         }
 
+        public static Show GetShowById(int id)
+        {
+            return ShowRepository.GetShowById(id);
+        }
+
         public static bool AddShow(int sellerId, string name, int price, string description)
         {
             Show newShow = ShowFactory.create(sellerId, name, price, description);
