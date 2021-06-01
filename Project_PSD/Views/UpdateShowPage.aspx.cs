@@ -17,8 +17,16 @@ namespace Project_PSD.Views
                 Response.Redirect("LoginPage.aspx");
             }
 
-            int id = int.Parse(Request.QueryString["id"]);
-            this.id = id; 
+            if(Request.QueryString["id"] != null)
+            {
+                int id = int.Parse(Request.QueryString["id"]);
+                this.id = id;
+            }
+            else
+            {
+                Response.Redirect("ShowDetailPage.aspx");
+            }
+            
         }
 
         protected void UpdateBtn_Click(object sender, EventArgs e)

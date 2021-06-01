@@ -1,4 +1,4 @@
-﻿using Project_PSD.Handler;
+using Project_PSD.Handler;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +12,7 @@ namespace Project_PSD.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            FillGrid();
-            //Response.Redirect("./UpdateFoodPage.aspx?id=" + txtID.Text);
+            FillGrid();            
         }
         protected void FillGrid()
         {

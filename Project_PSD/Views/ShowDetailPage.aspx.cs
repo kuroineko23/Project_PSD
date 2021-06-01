@@ -29,6 +29,10 @@ namespace Project_PSD.Views
                 UpdateBtn.Visible = true;
             }
 
+            if(Request.QueryString["id"] == null)
+            {
+                Response.Redirect("HomePage.aspx");
+            }
 
             int id = int.Parse(Request.QueryString["id"]);
             this.id = id;
