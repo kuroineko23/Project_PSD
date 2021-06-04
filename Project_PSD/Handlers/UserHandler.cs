@@ -26,8 +26,9 @@ namespace Project_PSD.Handlers
 
         public static bool Update(string password, string name)
         {
-            User newUser = UserFactory.create(username, password, name, GetRoleId(role));
-            return UserRepository.insertUser(newUser);
+            //User currUser = 
+            //return UserRepository.updateUser(password, name);
+            return true;
         }
 
         public static User findUser(string username, string password)
