@@ -20,7 +20,11 @@ namespace Project_PSD.Views
             UpdateBtn.Visible = false;
 
             User currUser = (User)Session["user"];
-            if (currUser.RoleId == 2) //seller 1 member 2 guest 3
+            if(currUser == null)
+            {
+                Response.Redirect("HomePage.aspx");
+            }
+            else if (currUser.RoleId == 2) //seller 1 member 2 guest 3
             {
                 OrderBtn.Visible = true;
             }
@@ -45,9 +49,9 @@ namespace Project_PSD.Views
             SellerNameLbl.Text = seller.Name;
             DescriptionLbl.Text = show.Description;
 
-            AverageRatingLbl.Text = ReviewHandler.GetAverageRatingByShowId(id).ToString();
+            //AverageRatingLbl.Text = ReviewHandler.GetAverageRatingByShowId(id).ToString();
 
-            FillGrid();
+            //FillGrid();
         }
         protected void FillGrid()
         {
@@ -62,7 +66,7 @@ namespace Project_PSD.Views
 
         protected void UpdateBtn_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32((sender as LinkButton).CommandArgument);
+            //int id = Convert.ToInt32((sender as LinkButton).CommandArgument);
             Response.Redirect("./UpdateShowPage.aspx?id=" + id);
         }
     }

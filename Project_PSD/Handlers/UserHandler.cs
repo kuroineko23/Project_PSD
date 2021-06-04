@@ -24,6 +24,12 @@ namespace Project_PSD.Handlers
             return UserRepository.insertUser(newUser);
         }
 
+        public static bool Update(string password, string name)
+        {
+            User newUser = UserFactory.create(username, password, name, GetRoleId(role));
+            return UserRepository.insertUser(newUser);
+        }
+
         public static User findUser(string username, string password)
         {
             return UserRepository.findUser(username, password);

@@ -147,5 +147,10 @@ namespace Project_PSD.Controllers
         {
             return UserHandler.findUser(id);
         }
+
+        public static bool UpdateProfile(string name, string oldPassword, string newPassword, string confirmPassword)
+        {
+
+        }
     }
 }

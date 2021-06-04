@@ -13,6 +13,9 @@
         <div>
             <table>
                 <tr>
+                    <td>
+                        <asp:LinkButton Text="Home" ID="HomeBtn" OnClick="HomeBtn_Click" runat="server" />
+                    </td>
                     <asp:Panel ID="GuestPanel" Visible="False" runat="server">
                         <td>
                             <asp:LinkButton Text="Login" ID="LoginBtn" OnClick="LoginBtn_Click" runat="server" />
@@ -22,9 +25,6 @@
                         </td>
                     </asp:Panel>
                     <asp:Panel ID="MemberPanel" Visible="False" runat="server">
-                        <td>
-                        <asp:LinkButton Text="Home" ID="HomeBtn" OnClick="HomeBtn_Click" runat="server" />
-                        </td>
                         <asp:Panel ID="BuyerPanel" Visible="false" runat="server">
                             <td>
                                 <asp:LinkButton Text="Transactions" ID="TransactionBtn" OnClick="TransactionBtn_Click" runat="server" />

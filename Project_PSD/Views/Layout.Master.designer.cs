@@ -33,6 +33,15 @@ namespace Project_PSD.Views
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// HomeBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton HomeBtn;
+
+        /// <summary>
         /// GuestPanel control.
         /// </summary>
         /// <remarks>
@@ -67,15 +76,6 @@ namespace Project_PSD.Views
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel MemberPanel;
-
-        /// <summary>
-        /// HomeBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton HomeBtn;
 
         /// <summary>
         /// BuyerPanel control.

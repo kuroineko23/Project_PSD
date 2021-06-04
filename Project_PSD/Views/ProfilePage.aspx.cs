@@ -1,3 +1,4 @@
+using Project_PSD.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,14 @@ namespace Project_PSD.Views
             {
                 Response.Redirect("LoginPage.aspx");
             }
+            User currUser = (User)Session["User"];
+
+            NameTxt.Text = currUser.Name;
+        }
+
+        protected void UpdateBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
