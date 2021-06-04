@@ -28,6 +28,15 @@ namespace Project_PSD.Views
         protected void UpdateBtn_Click(object sender, EventArgs e)
         {
             string result = UserController.UpdateProfile(currUser, NameTxt.Text, OldPasswordTxt.Text, NewPasswordTxt.Text, ConfirmPasswordTxt.Text);
+            if (result == "Profile Updated!")
+            {
+                ErrorLbl.ForeColor = System.Drawing.Color.Green;
+            }
+            else
+            {
+                ErrorLbl.ForeColor = System.Drawing.Color.Red;
+            }
+            ErrorLbl.Text = result;
         }
     }
 }

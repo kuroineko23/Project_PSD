@@ -24,11 +24,9 @@ namespace Project_PSD.Handlers
             return UserRepository.insertUser(newUser);
         }
 
-        public static bool Update(string password, string name)
+        public static bool Update(User user, string name, string password)
         {
-            //User currUser = 
-            //return UserRepository.updateUser(password, name);
-            return true;
+            return UserRepository.updateUser(user, password, name);
         }
 
         public static User findUser(string username, string password)

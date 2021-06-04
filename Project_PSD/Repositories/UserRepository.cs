@@ -29,5 +29,21 @@ namespace Project_PSD.Repositories
         {
             return (from x in db.Users where x.Id == id select x).FirstOrDefault();
         }
+
+        public static bool updateUser(User user, string password, string name)
+        {
+            User currUser = db.Users.Find(user.Id);
+            if(currUser != null)
+            {
+                currUser.Name = name;
+                if(password != "")
+                {
+                    currUser.Password = password;
+                }
+                db.SaveChanges();
+                return true;
+            }
+            return false;
+        }
     }
 }

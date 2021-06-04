@@ -154,18 +154,31 @@ namespace Project_PSD.Controllers
 
             if(oldPassword != "")
             {
-                result = PasswordCheck(newPassword, confirmPassword);
+                if(newPassword != "")
+                {
+                    result = PasswordCheck(newPassword, confirmPassword);
+                }
+
                 if(result == "")
                 {
-                    //update
+                    if(UserHandler.Update(user, name, newPassword))
+                    {
+                        return "Profile Updated!";
+                    }
+                    else
+                    {
+                        return "Error updating profile!";
+                    }
                 }
                 else
                 {
                     return result;
                 }
             }
-
-            return result;
+            else
+            {
+                return "Input your old password!";
+            }
         }
     }
 }

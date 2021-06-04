@@ -40,5 +40,10 @@
                 <asp:Button Text="Update" ID="UpdateBtn" OnClick="UpdateBtn_Click" runat="server" />
             </td>
         </tr>
+        <tr>
+            <td colspan="2">
+                <asp:Label Text="" ID="ErrorLbl" runat="server" />
+            </td>
+        </tr>
     </table>
 </asp:Content>
