@@ -159,6 +159,7 @@ namespace Project_PSD.Controllers
                     result = PasswordCheck(newPassword, confirmPassword);
                 }
 
+                NameCheck(name);
                 if(result == "")
                 {
                     if(UserHandler.Update(user, name, newPassword))

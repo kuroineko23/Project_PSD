@@ -4,46 +4,26 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table>
         <tr>
-            <td>
-                Name
-            </td>
-            <td>
-                <asp:TextBox ID="NameTxt" runat="server" />
-            </td>
+            <td>Name</td>
+            <td><asp:TextBox ID="NameTxt" runat="server" /></td>
         </tr>
         <tr>
-            <td>
-                Old Password
-            </td>
-            <td>
-                <asp:TextBox ID="OldPasswordTxt" TextMode="Password" runat="server" />
-            </td>
+            <td>Old Password</td>
+            <td><asp:TextBox ID="OldPasswordTxt" TextMode="Password" runat="server" /></td>
         </tr>
         <tr>
-            <td>
-                New Password
-            </td>
-            <td>
-                <asp:TextBox ID="NewPasswordTxt" TextMode="Password" placeholder="min. 6 characters" runat="server" />
-            </td>
+            <td>New Password</td>
+            <td><asp:TextBox ID="NewPasswordTxt" TextMode="Password" placeholder="min. 6 characters" runat="server" /></td>
         </tr>
         <tr>
-            <td>
-                Confirm New Password
-            </td>
-            <td>
-                <asp:TextBox ID="ConfirmPasswordTxt" TextMode="Password" runat="server" />
-            </td>
+            <td>Confirm New Password</td>
+            <td><asp:TextBox ID="ConfirmPasswordTxt" TextMode="Password" runat="server" /></td>
         </tr>
         <tr>
-            <td colspan="2">
-                <asp:Button Text="Update" ID="UpdateBtn" OnClick="UpdateBtn_Click" runat="server" />
-            </td>
+            <td colspan="2"><asp:Button Text="Update" ID="UpdateBtn" OnClick="UpdateBtn_Click" runat="server" /></td>
         </tr>
         <tr>
-            <td colspan="2">
-                <asp:Label Text="" ID="ErrorLbl" runat="server" />
-            </td>
+            <td colspan="2"><asp:Label Text="" ID="ErrorLbl" runat="server" /></td>
         </tr>
     </table>
 </asp:Content>

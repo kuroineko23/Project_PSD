@@ -22,7 +22,7 @@ namespace Project_PSD.Views
             }
             currUser = (User)Session["User"];
 
-            NameTxt.Text = currUser.Name;
+            NameTxt.Attributes["placeholder"] = currUser.Name;
         }
 
         protected void UpdateBtn_Click(object sender, EventArgs e)
@@ -31,6 +31,7 @@ namespace Project_PSD.Views
             if (result == "Profile Updated!")
             {
                 ErrorLbl.ForeColor = System.Drawing.Color.Green;
+                Session["User"] = null;
             }
             else
             {
