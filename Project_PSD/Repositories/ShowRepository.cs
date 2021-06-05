@@ -30,5 +30,15 @@ namespace Project_PSD.Repository
             }
             return false;
         }
+
+        public static bool UpdateShow(Show newShow)
+        {
+            if (newShow != null)
+            {
+                db.SaveChanges();
+                return true;
+            }
+            return false;
+        }
     }
 }

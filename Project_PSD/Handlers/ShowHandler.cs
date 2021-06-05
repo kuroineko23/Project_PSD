@@ -25,5 +25,19 @@ namespace Project_PSD.Handler
             Show newShow = ShowFactory.create(sellerId, name, price, description);
             return ShowRepository.AddShow(newShow);
         }
+
+        public static bool UpdateShow(int showId, string name, int price, string description)
+        {
+
+            Show curr = ShowRepository.GetShowById(showId);
+            if (curr != null)
+            {
+                curr.Name = name;
+                curr.Price = price;
+                curr.Description = description;
+                return ShowRepository.UpdateShow(curr);
+            }
+            return false;
+        }
     }
 }

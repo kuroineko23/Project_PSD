@@ -68,5 +68,37 @@ namespace Project_PSD.Controllers
             }
             return "";
         }
+
+        public static string UpdateShowValidation(int showId, string name, int price, string description)
+        {
+            if (NameCheck(name) != "")
+            {
+                return NameCheck(name);
+            }
+            if (DescriptionCheck(description) != "")
+            {
+                return DescriptionCheck(description);
+            }
+            if (PriceCheck(price) != "")
+            {
+                return PriceCheck(price);
+            }
+            if (ShowHandler.UpdateShow(showId, name, price, description))
+            {
+                return "Update show success!";
+            }
+            else
+            {
+                return "Failed to update show!";
+            }
+        }
+        public static List<Show> GetShowList()
+        {
+            return ShowHandler.GetShowList();
+        }
+        public static Show GetShowById(int id)
+        {
+            return ShowHandler.GetShowById(id);
+        }
     }
 }
