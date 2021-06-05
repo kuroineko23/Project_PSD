@@ -1,5 +1,4 @@
-using Project_PSD.Handler;
-using Project_PSD.Handlers;
+using Project_PSD.Controllers;
 using Project_PSD.Models;
 using System;
 using System.Collections.Generic;
@@ -31,6 +30,7 @@ namespace Project_PSD.Views
             else if (currUser.RoleId == 1) //seller 1 member 2 guest 3// BELUM KELAR REQUIEREMENT JIKA SHOW SOLD JUGA.
             {
                 UpdateBtn.Visible = true;
+                //if sold response redirect ke update show page
             }
 
             if(Request.QueryString["id"] == null)
@@ -40,28 +40,29 @@ namespace Project_PSD.Views
 
             int id = int.Parse(Request.QueryString["id"]);
             this.id = id;
-            Show show = ShowHandler.GetShowById(id);
+
+            Show show = ShowController.GetShowById(id);
 
             ShowNameLbl.Text = show.Name;
             ShowPriceLbl.Text = show.Price.ToString();
 
-            User seller = UserHandler.findUser(show.SellerId);
+            User seller = UserController.GetUser(show.SellerId);
             SellerNameLbl.Text = seller.Name;
             DescriptionLbl.Text = show.Description;
 
-            //AverageRatingLbl.Text = ReviewHandler.GetAverageRatingByShowId(id).ToString();
+            //AverageRatingLbl.Text = ReviewController.GetAverageRatingByShowId(id).ToString();
 
             //FillGrid();
         }
         protected void FillGrid()
         {
-            ReviewGV.DataSource = ReviewHandler.GetReviewByShowId(id);
+            ReviewGV.DataSource = ReviewController.GetReviewByShowId(id);
             ReviewGV.DataBind();
         }
 
         protected void OrderBtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("OrderPage.aspx");
+            Response.Redirect("./OrderPage.aspx?id=" + id);
         }
 
         protected void UpdateBtn_Click(object sender, EventArgs e)

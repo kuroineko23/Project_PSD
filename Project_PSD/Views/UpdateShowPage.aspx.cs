@@ -1,3 +1,5 @@
+using Project_PSD.Handler;
+using Project_PSD.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +33,20 @@ namespace Project_PSD.Views
 
         protected void UpdateBtn_Click(object sender, EventArgs e)
         {
+            string name = NameTxt.Text;
+            int price = int.Parse(PriceTxt.Text);
+            string description = DescriptionTxt.Text;
 
+            string result = ShowController.UpdateShowValidation(id, name, price, description);
+            if (result == "Update show success!")
+            {
+                ErrorLbl.ForeColor = System.Drawing.Color.Green;
+            }
+            else
+            {
+                ErrorLbl.ForeColor = System.Drawing.Color.Red;
+            }
+            ErrorLbl.Text = result;
         }
     }
 }

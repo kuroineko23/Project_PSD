@@ -4,23 +4,41 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table>
         <tr>
-            <td>Name</td>
-            <td><asp:TextBox runat="server" ID="NameTxt"/></td>
+            <td>
+                Name
+            </td>
+            <td>
+                <asp:TextBox runat="server" ID="NameTxt"/>
+            </td>
         </tr>
         <tr>
-            <td>Username</td>
-            <td><asp:TextBox runat="server" ID="usernameTxt"/></td>
+            <td>
+                Username
+            </td>
+            <td>
+                <asp:TextBox runat="server" ID="usernameTxt"/>
+            </td>
         </tr>
         <tr>
-            <td>Password</td>
-            <td><asp:TextBox runat="server" ID="passwordTxt" TextMode="Password"/></td>
+            <td>
+                Password
+            </td>
+            <td>
+                <asp:TextBox runat="server" ID="passwordTxt" TextMode="Password"/>
+            </td>
         </tr>
         <tr>
-            <td>Confirm Password</td>
-            <td><asp:TextBox runat="server" ID="confirmTxt" TextMode="Password"/></td>
+            <td>
+                Confirm Password
+            </td>
+            <td>
+                <asp:TextBox runat="server" ID="confirmTxt" TextMode="Password"/>
+            </td>
         </tr>
         <tr>
-            <td>Role</td>
+            <td>
+                Role
+            </td>
             <td>
                 <asp:DropDownList ID="RoleDD" runat="server">
                     <asp:ListItem Text="Member" Value="member" />

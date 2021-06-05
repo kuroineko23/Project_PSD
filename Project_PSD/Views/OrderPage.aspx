@@ -55,9 +55,7 @@
         <ContentTemplate>
             <table>
                 <tr>
-                    <td>
-                        Quantity
-                    </td>
+                    <td>Quantity</td>
                     <td>
                         <asp:TextBox runat="server" ID="QtyTxt" TextMode="Number" />
                     </td>

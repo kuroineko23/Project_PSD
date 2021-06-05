@@ -1,4 +1,4 @@
-using Project_PSD.Handler;
+using Project_PSD.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +16,7 @@ namespace Project_PSD.Views
         }
         protected void FillGrid()
         {
-            ShowGV.DataSource = ShowHandler.GetShowList();
+            ShowGV.DataSource = ShowController.GetShowList();
             ShowGV.DataBind();
         }
 
