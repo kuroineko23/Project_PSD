@@ -9,7 +9,7 @@ namespace Project_PSD.Controllers
 {
     public class ShowController
     {
-        public static string AddShowValidation(int sellerId,string name, int price, string description)
+        public static string AddShowValidation(int sellerId,string name, int price, string description, string url)
         {
             if (NameCheck(name) != "")
             {
@@ -23,7 +23,7 @@ namespace Project_PSD.Controllers
             {
                 return PriceCheck(price);
             }
-            if(ShowHandler.AddShow(sellerId, name, price, description))
+            if(ShowHandler.AddShow(sellerId, name, price, description, url))
             {
                 return "Add show success!";
             }
@@ -68,7 +68,6 @@ namespace Project_PSD.Controllers
             }
             return "";
         }
-
         public static string UpdateShowValidation(int showId, string name, int price, string description)
         {
             if (NameCheck(name) != "")

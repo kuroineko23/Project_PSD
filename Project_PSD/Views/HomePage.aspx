@@ -15,7 +15,7 @@
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
-    </asp:GridView> 
+    </asp:GridView>
 
     <%-- add comment column --%>
 </asp:Content>

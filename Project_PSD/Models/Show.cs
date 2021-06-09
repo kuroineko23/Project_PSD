@@ -17,6 +17,7 @@ namespace Project_PSD.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Show()
         {
+            this.Times = new HashSet<Time>();
             this.TransactionHeaders = new HashSet<TransactionHeader>();
         }
     
@@ -25,8 +26,17 @@ namespace Project_PSD.Models
         public string Name { get; set; }
         public int Price { get; set; }
         public string Description { get; set; }
+
+        internal object Select(Func<object, object> p)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string Url { get; set; }
     
         public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Time> Times { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TransactionHeader> TransactionHeaders { get; set; }
     }

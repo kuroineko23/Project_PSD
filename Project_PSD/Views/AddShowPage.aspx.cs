@@ -31,9 +31,10 @@ namespace Project_PSD.Views
             string name = NameTxt.Text;
             int price = int.Parse(PriceTxt.Text);
             string description = DescriptionTxt.Text;
+            string url = URLTxt.Text;
             User user = (User)Session["User"];
 
-            string result = ShowController.AddShowValidation(user.Id, name, price, description);
+            string result = ShowController.AddShowValidation(user.Id, name, price, description, url);
             if(result == "Add show success!")
             {
                 ErrorLbl.ForeColor = System.Drawing.Color.Green;

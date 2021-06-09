@@ -11,7 +11,7 @@ namespace Project_PSD.Repository
         private static DatabaseEntities db = new DatabaseEntities();
 
         public static List<Show> GetAllShows()
-        {
+        {   
             return (from x in db.Shows select x).ToList();
         }
 

@@ -24,11 +24,12 @@ namespace Project_PSD.Models
         public int BuyerId { get; set; }
         public int ShowId { get; set; }
         public System.DateTime ShowTime { get; set; }
-        public byte[] CreatedAt { get; set; }
+        public System.DateTime CreatedAt { get; set; }
     
         public virtual Show Show { get; set; }
+        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TransactionDetail> TransactionDetails { get; set; }
-        public virtual User User { get; set; }
+        public IEnumerable<object> Shows { get; internal set; }
     }
 }

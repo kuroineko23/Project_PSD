@@ -9,16 +9,18 @@
         <EntityTypeShape EntityType="DatabaseModel.Role" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DatabaseModel.Show" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="DatabaseModel.Status" Width="1.5" PointX="7.5" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.TransactionDetail" Width="1.5" PointX="9.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.TransactionHeader" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="DatabaseModel.User" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="DatabaseModel.FK_Reviews_TransactionDetails" ManuallyRouted="false" />
         <AssociationConnector Association="DatabaseModel.FK_Users_Roles" ManuallyRouted="false" />
         <AssociationConnector Association="DatabaseModel.FK_Shows_Users" ManuallyRouted="false" />
-        <AssociationConnector Association="DatabaseModel.FK_TransactionHeaders_Shows" ManuallyRouted="false" />
-        <AssociationConnector Association="DatabaseModel.FK_TransactionDetails_Statuses" ManuallyRouted="false" />
-        <AssociationConnector Association="DatabaseModel.FK_TransactionDetails_TransactionHeaders" ManuallyRouted="false" />
-        <AssociationConnector Association="DatabaseModel.FK_TransactionHeaders_Users" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DatabaseModel.Time" Width="1.5" PointX="0.75" PointY="4.875" />
+        <AssociationConnector Association="DatabaseModel.FK_Time_Shows" />
+        <EntityTypeShape EntityType="DatabaseModel.TransactionHeader" Width="1.5" PointX="7.5" PointY="1" />
+        <AssociationConnector Association="DatabaseModel.FK_TransactionHeaders_Shows" />
+        <AssociationConnector Association="DatabaseModel.FK_TransactionHeaders_Users" />
+        <EntityTypeShape EntityType="DatabaseModel.TransactionDetail" Width="1.5" PointX="9.75" PointY="1" />
+        <AssociationConnector Association="DatabaseModel.FK_Reviews_TransactionDetails" />
+        <AssociationConnector Association="DatabaseModel.FK_TransactionDetails_Statuses" />
+        <AssociationConnector Association="DatabaseModel.FK_TransactionDetails_TransactionHeaders" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

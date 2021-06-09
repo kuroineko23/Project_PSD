@@ -29,8 +29,9 @@ namespace Project_PSD.Models
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Show> Shows { get; set; }
         public virtual DbSet<Status> Statuses { get; set; }
-        public virtual DbSet<TransactionDetail> TransactionDetails { get; set; }
-        public virtual DbSet<TransactionHeader> TransactionHeaders { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Time> Times { get; set; }
+        public virtual DbSet<TransactionHeader> TransactionHeaders { get; set; }
+        public virtual DbSet<TransactionDetail> TransactionDetails { get; set; }
     }
 }
