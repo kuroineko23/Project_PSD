@@ -1,5 +1,10 @@
 <%@ Page Title="" Language="C#" MasterPageFile="~/Views/Layout.Master" AutoEventWireup="true" CodeBehind="OrderPage.aspx.cs" Inherits="Project_PSD.Views.OrderPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .auto-style1 {
+            width: 50px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table>
@@ -61,28 +66,33 @@
                     </td>
                 </tr>
             </table>
-            <%-- don't forget token after ordering --%>
-
-            <asp:GridView ID="TimeTableGV" runat="server" AutoGenerateColumns="false" GridLines="Horizontal" OnRowUpdating="TimeTableGV_RowUpdating">
-                <Columns>
-                    <asp:TemplateField HeaderText ="ShowTime">
-                        <ItemTemplate>
-                            <asp:Label Text='<%# ((DateTime)Eval("ShowTime")).ToString("HH:mm")%>' runat="server" />
-                            <asp:Label Text=" - " runat="server" />
-                            <asp:Label Text='<%# ((DateTime)Eval("ShowTime")).AddMinutes(59).ToString("HH:mm") %>' runat="server" />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText ="Availability">
-                        <ItemTemplate>
-                            <asp:LinkButton ID="Orderbtn" runat="server" Text='<%# ((Eval("Availablity") is true) ? "ORDER" : "UNAVAILABLE")  %>' CommandArgument='<%# Eval("Id") %>' OnClick="Orderbtn_Click"/> 
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                </Columns>
-            </asp:GridView>
-            <asp:Label ID="HeaderGenTxt" Text="Generated Token" runat="server" Visible="false" />
-            <asp:BulletedList ID="TokenList" runat="server"></asp:BulletedList>
-            <asp:Label Text="" ID="ErrorLbl" runat="server" />
+            <table>
+                <tr>
+                    <td>
+                        <asp:GridView ID="TimeTableGV" runat="server" AutoGenerateColumns="false" GridLines="Horizontal">
+                            <Columns>
+                                <asp:TemplateField HeaderText ="ShowTime">
+                                    <ItemTemplate>
+                                        <asp:Label Text='<%# ((DateTime)Eval("ShowTime")).ToString("HH:mm")%>' runat="server" />
+                                        <asp:Label Text=" - " runat="server" />
+                                        <asp:Label Text='<%# ((DateTime)Eval("ShowTime")).AddMinutes(59).ToString("HH:mm") %>' runat="server" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText ="Availability">
+                                    <ItemTemplate>
+                                        <asp:LinkButton ID="Orderbtn" runat="server" Text='<%# ((Eval("Availablity") is true) ? "ORDER" : "UNAVAILABLE")  %>' CommandArgument='<%# Eval("Id") %>' OnClick="Orderbtn_Click"/> 
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
+                    </td>
+                    <td class="auto-style1"></td>
+                    <td>
+                        <asp:Label ID="HeaderGenTxt" Text="Generated Token" runat="server" Visible="false" />
+                        <asp:BulletedList ID="TokenList" runat="server"></asp:BulletedList>
+                    </td>
+                <asp:Label Text="" ID="ErrorLbl" runat="server" />
+                </table>
         </ContentTemplate>
     </asp:UpdatePanel>
-    <asp:Button ID="refreshBtn" OnClick="refreshBtn_Click" Text="Refresh" runat="server" />
 </asp:Content>

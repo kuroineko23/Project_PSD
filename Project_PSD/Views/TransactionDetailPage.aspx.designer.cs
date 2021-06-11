@@ -24,15 +24,6 @@ namespace Project_PSD.Views
         protected global::System.Web.UI.WebControls.Label ShowNameLbl;
 
         /// <summary>
-        /// DescriptionLbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label DescriptionLbl;
-
-        /// <summary>
         /// AverageRatingLbl control.
         /// </summary>
         /// <remarks>
@@ -40,6 +31,15 @@ namespace Project_PSD.Views
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label AverageRatingLbl;
+
+        /// <summary>
+        /// DescriptionLbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label DescriptionLbl;
 
         /// <summary>
         /// UnusedTokenGV control.

@@ -1,8 +1,5 @@
 using Project_PSD.Controllers;
-using Project_PSD.Factories;
-using Project_PSD.Handlers;
 using Project_PSD.Models;
-using Project_PSD.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,7 +13,7 @@ namespace Project_PSD.Views
 {
     public partial class OrderPage : System.Web.UI.Page
     {
-        private int id, TimeId;
+        private int id;
         protected void Page_Load(object sender, EventArgs e)
         { 
             if (Session["User"] == null && Request.Cookies["TAxAidi_User"] == null)
@@ -45,7 +42,7 @@ namespace Project_PSD.Views
             SellerNameLbl.Text = seller.Name;
             DescriptionLbl.Text = show.Description;
 
-            //AverageRatingLbl.Text = ReviewController.GetAverageRatingByShowId(id).ToString();
+            AverageRatingLbl.Text = ReviewController.GetAverageRatingByShowId(id).ToString();
 
             
             DateTime selectedDate = ShowDateCalendar.SelectedDate;
@@ -63,21 +60,21 @@ namespace Project_PSD.Views
             TimeTableGV.DataBind();
         }
 
-        protected void refreshBtn_Click(object sender, EventArgs e)
-        {
-            DateTime selectedDate = ShowDateCalendar.SelectedDate;
-            //ErrorLbl.Text = selectedDate.ToString();
-            //FillGridAvailableTime(id, DateTime.Now);
-            //ErrorLbl.Text = TimeRepository.Insert(TimeFactory.create(id, selectedDate, true)).ToString();
-            //ErrorLbl.Text = TimeHandler.CreateDefault(id, selectedDate);
-            //List<Time> Available = TimeController.GetAvailableShowTimeListAndDate(id, selectedDate);
-            //DateTime now = DateTime.Now;
-            //ErrorLbl.Text = TimeHandler.UpdateHourAvailability(id, selectedDate).ToString();
-            //ErrorLbl.Text = now.ToString();
-            //TimeTableGV.DataSource = Available;
-            //TimeTableGV.DataBind();
-            selectedDate.AddMinutes(59);
-        }
+        //protected void refreshBtn_Click(object sender, EventArgs e)
+        //{
+        //    DateTime selectedDate = ShowDateCalendar.SelectedDate;
+        //    //ErrorLbl.Text = selectedDate.ToString();
+        //    //FillGridAvailableTime(id, DateTime.Now);
+        //    //ErrorLbl.Text = TimeRepository.Insert(TimeFactory.create(id, selectedDate, true)).ToString();
+        //    //ErrorLbl.Text = TimeHandler.CreateDefault(id, selectedDate);
+        //    //List<Time> Available = TimeController.GetAvailableShowTimeListAndDate(id, selectedDate);
+        //    //DateTime now = DateTime.Now;
+        //    //ErrorLbl.Text = TimeHandler.UpdateHourAvailability(id, selectedDate).ToString();
+        //    //ErrorLbl.Text = now.ToString();
+        //    //TimeTableGV.DataSource = Available;
+        //    //TimeTableGV.DataBind();
+        //    selectedDate.AddMinutes(59);
+        //}
         protected void Orderbtn_Click(object sender, EventArgs e)
         {
             int TimeId = Convert.ToInt32((sender as LinkButton).CommandArgument);
@@ -110,11 +107,6 @@ namespace Project_PSD.Views
                 btn.Enabled = false;
                 btn.ForeColor = System.Drawing.Color.Gray;
             }
-        }
-
-        protected void TimeTableGV_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        {
-
         }
 
         protected void FillTokenGrid(int transHeaderId, int qty)

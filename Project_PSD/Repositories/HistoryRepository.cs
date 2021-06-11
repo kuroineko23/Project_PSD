@@ -15,6 +15,7 @@ namespace Project_PSD.Repositories
         {
             var History =  (from x in db.TransactionHeaders
                     join y in db.Shows on x.ShowId equals y.Id
+                    where x.BuyerId == userId
                     select new { Id = x.Id, PaymentDate = x.CreatedAt, ShowName = y.Name, ShowTime = x.ShowTime, Price = y.Price}).ToList();
             var tHist = new List<TransactionHistory>();
             foreach (var item in History)
@@ -24,6 +25,7 @@ namespace Project_PSD.Repositories
                                 where x.Id == item.Id
                                 select new { Id = x.Id }).Count();
                 TransactionHistory newTHist = new TransactionHistory();
+                newTHist.THid = item.Id;
                 newTHist.PaymentDate = item.PaymentDate;
                 newTHist.ShowName = item.ShowName;
                 newTHist.ShowTime = item.ShowTime;

@@ -28,7 +28,12 @@
             <td>Reviews</td>
             <td>
                 <asp:Panel ID="ReviewPanel" runat="server" ScrollBars="Horizontal">
-                    <asp:GridView ID="ReviewGV" runat="server"></asp:GridView>
+                    <asp:GridView ID="ReviewGV" runat="server" AutoGenerateColumns="false">
+                        <Columns>
+                            <asp:BoundField DataField="Description" HeaderText="Description" />
+                            <asp:BoundField DataField="Rating" HeaderText="Rating" />
+                        </Columns>
+                    </asp:GridView>
                 </asp:Panel>
             </td>
         </tr>

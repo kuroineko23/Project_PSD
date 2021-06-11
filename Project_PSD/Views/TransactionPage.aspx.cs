@@ -1,6 +1,5 @@
 using Project_PSD.Controllers;
 using Project_PSD.Models;
-using Project_PSD.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,47 +13,39 @@ namespace Project_PSD.Views
     public partial class TransactionPage : System.Web.UI.Page
     {
         private User currUser;
-
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (Session["User"] == null && Request.Cookies["TAxAidi_User"] == null)
             {
                 Response.Redirect("LoginPage.aspx");
             }
             currUser = (User)Session["User"];
-
+            if (currUser.RoleId != 2)
+            {
+                Response.Redirect("HomePage.aspx");
+            }
             FillGrid();
         }
 
         protected void FillGrid()
         {
-            //Items item = new Items();
-            //item = 
-            //TransactionHeaderController.
-            /*DatabaseEntities db = new DatabaseEntities();
-            List<TransactionHeader> THeaderList = new List<TransactionHeader>();
-            List<TransactionDetail> TDetailList = new List<TransactionDetail>();
-
-            THeaderList = (from x in db.TransactionHeaders 
-                           join det on db.TransactionDetails equals det into de
-                           from det in de.DefaultEmpty()
-                           where det.TransactionHeaderId == x.Id
-                           select x).ToList();
-
-            TransactionGV.DataSource = TransactionHeaderRepository.GetTransactionHeadersList();
-            TransactionGV.DataBind();
-            */
             TransactionGV.DataSource = HistoryController.GetTransactionHistory(currUser.Id);
             TransactionGV.DataBind();
-
         }
 
-        protected void TransactionGV_RowDataBound(object sender, GridViewRowEventArgs e)
+        //protected void DetailLink_Click(object sender, EventArgs e)
+        //{
+        //    int id = Convert.ToInt32((sender as LinkButton).CommandArgument);
+        //    Response.Redirect("./TransactionDetailPage.aspx?THid=" + id);
+        //}
+
+        protected void DetailsLinkBtn_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("HomePage.aspx");
         }
 
-        protected void TransactionGV_RowCreated(object sender, GridViewRowEventArgs e)
+        protected void DetailLinkBtn_Click(object sender, EventArgs e)
         {
 
         }

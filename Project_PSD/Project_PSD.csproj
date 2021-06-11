@@ -111,6 +111,7 @@
     <Compile Include="Controllers\TransactionDetailController.cs" />
     <Compile Include="Controllers\TransactionHeaderController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Factories\ReviewFactory.cs" />
     <Compile Include="Factories\ShowFactory.cs" />
     <Compile Include="Factories\TimeFactory.cs" />
     <Compile Include="Factories\TransactionDetailFactory.cs" />

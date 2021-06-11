@@ -23,13 +23,17 @@ namespace Project_PSD.Controllers
             }
             else if (int.Parse(qty) < 1)
             {
-                response = "Quantity must be numeric and at least 1";
+                response = "Quantity must be at least 1";
             }
             else if (time.Availablity == false)
             {
                 response = "Time choosen Unavailable";
             }
             return response;
+        }
+        public static TransactionHeader getTransHeadById(int id)
+        {
+            return TransactionHeaderHandler.getTransHeadById(id);
         }
     }
 }

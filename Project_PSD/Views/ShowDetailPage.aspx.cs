@@ -50,9 +50,9 @@ namespace Project_PSD.Views
             SellerNameLbl.Text = seller.Name;
             DescriptionLbl.Text = show.Description;
 
-            //AverageRatingLbl.Text = ReviewController.GetAverageRatingByShowId(id).ToString();
+            AverageRatingLbl.Text = ReviewController.GetAverageRatingByShowId(id).ToString();
 
-            //FillGrid();
+            FillGrid();
         }
         protected void FillGrid()
         {

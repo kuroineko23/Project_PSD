@@ -13,18 +13,18 @@
         </tr>
         <tr>
             <td>
-                Description
-            </td>
-            <td>
-                <asp:Label Text="" ID="DescriptionLbl" runat="server" />
-            </td>
-        </tr>
-        <tr>
-            <td>
                 Average Rating
             </td>
             <td>
                 <asp:Label Text="" ID="AverageRatingLbl" runat="server" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Description
+            </td>
+            <td>
+                <asp:Label Text="" ID="DescriptionLbl" runat="server" />
             </td>
         </tr>
         <tr>

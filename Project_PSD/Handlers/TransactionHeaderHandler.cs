@@ -24,9 +24,13 @@ namespace Project_PSD.Handlers
             }
         }
 
-        public static List<TransactionHeader> GetTransactionHeaderById(int buyerId)
+        //public static List<TransactionHeader> GetTransactionHeaderById(int buyerId)
+        //{
+        //    return TransactionHeaderRepository.GetTransactionHeadersListByBuyerId(buyerId);
+        //}
+        public static TransactionHeader getTransHeadById(int id)
         {
-            return TransactionHeaderRepository.GetTransactionHeadersListById(buyerId);
+            return TransactionHeaderRepository.getTransHeadById(id);
         }
     }
 }

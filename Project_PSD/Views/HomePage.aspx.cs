@@ -1,9 +1,6 @@
 using Project_PSD.Controllers;
+using Project_PSD.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace Project_PSD.Views
@@ -23,6 +20,11 @@ namespace Project_PSD.Views
         protected void DetailLink_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32((sender as LinkButton).CommandArgument);
+            User currUser = (User)Session["user"];
+            if (currUser == null)
+            {
+                Response.Redirect("LoginPage.aspx");
+            }
             Response.Redirect("./ShowDetailPage.aspx?id=" + id);
         }
     }

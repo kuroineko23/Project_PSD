@@ -43,7 +43,14 @@
                 <asp:TextBox runat="server" ID="DescriptionTxt" TextMode="MultiLine"/>
             </td>
         </tr>
+        <tr>
+            <td>
+                <asp:Label Text="" ID="ErrorLbl" runat="server" />
+            </td>
+        </tr>
+
     </table>
+    
     <asp:Button Text="Rate" ID="RateBtn" OnClick="RateBtn_Click" Visible="false" runat="server" />
     <asp:Button Text="Update" ID="UpdateBtn" OnClick="UpdateBtn_Click" Visible="false" runat="server" />
     <asp:Button Text="Delete" ID="DeleteBtn" OnClick="DeleteBtn_Click" Visible="false" runat="server" />

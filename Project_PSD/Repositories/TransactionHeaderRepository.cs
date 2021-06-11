@@ -27,9 +27,17 @@ namespace Project_PSD.Repositories
             return (from x in db.TransactionHeaders select x).ToList();
         }
 
-        public static List<TransactionHeader> GetTransactionHeadersListById(int buyerId)
+        //public static List<TransactionHeader> GetTransactionHeadersListById(int buyerId)
+        //{
+        //    return (from x in db.TransactionHeaders where x.BuyerId == buyerId select x).ToList();
+        //}
+        public static TransactionHeader getTransHeadById(int id)
         {
-            return (from x in db.TransactionHeaders where x.BuyerId == buyerId select x).ToList();
+            return (from x in db.TransactionHeaders where x.Id == id select x).FirstOrDefault(); 
+        }
+        public static List<TransactionHeader> getTransHeadByShowId(int ShowId)
+        {
+            return (from x in db.TransactionHeaders where x.ShowId == ShowId select x).ToList();
         }
     }
 }

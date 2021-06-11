@@ -27,5 +27,22 @@ namespace Project_PSD.Repositories
         {
             return ((from x in db.TransactionDetails where x.Token == token select x.Token).ToList().Count() == 0);
         }
+        public static List<TransactionDetail> getTransDetListByHeadId(int HeadId)
+        {
+            return (from x in db.TransactionDetails where x.TransactionHeaderId == HeadId select x).ToList();
+        }
+        public static TransactionDetail GetTransactionDetailByToken(string token)
+        {
+            return (from x in db.TransactionDetails where x.Token == token select x).FirstOrDefault();
+        }
+        public static bool UpdateStatus(TransactionDetail TD)
+        {
+            if (TD != null)
+            {
+                db.SaveChanges();
+                return true;
+            }
+            return false;
+        }
     }
 }

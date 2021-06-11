@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project_PSD.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,7 +17,22 @@ namespace Project_PSD.Views
 
         protected void RedeemBtn_Click(object sender, EventArgs e)
         {
+            string token = TokenTxt.Text;
 
+            ErrorLbl.Text = TransactionDetailController.redeemToken(token);
+            if (ErrorLbl.Text == "Used")
+            {
+                Response.Redirect("ReviewPage.aspx");
+            }
+            else if(ErrorLbl.Text == "Token Invalid" || ErrorLbl.Text == "You missed the show. :(")
+            {
+
+            }
+            else if(ErrorLbl.Text == "ShowTime")
+            {
+                Response.Redirect("./ReviewPage.aspx?token=" + token);
+                Response.Redirect("ErrorLbl.Text");
+            }   
         }
     }
 }
